@@ -1,0 +1,60 @@
+﻿<Window x:Class="cruda.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cruda"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Formulaire d'ajout -->
+        <Label x:Name="hint" Content="Ajouter" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="196,21,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="68,57,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nomAjouter" HorizontalAlignment="Left" Margin="128,57,0,0" Width="677" Height="27" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <Label Content="Prénom" HorizontalAlignment="Left" Margin="68,90,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="prenomAjouter" HorizontalAlignment="Left" Margin="128,90,0,0" Width="677" Height="27" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <Label Content="Âge" HorizontalAlignment="Left" Margin="68,123,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ageAjouter" HorizontalAlignment="Left" Margin="128,123,0,0" Width="677" Height="27" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <Label Content="Adresse" HorizontalAlignment="Left" Margin="58,156,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="adresseAjouter" HorizontalAlignment="Left" Margin="128,156,0,0" Width="677" Height="27" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <Label Content="Sexe" HorizontalAlignment="Left" Margin="68,189,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="sexeAjouter" HorizontalAlignment="Left" Margin="128,189,0,0" Width="677" Height="27" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="Homme"/>
+            <ComboBoxItem Content="Femme"/>
+        </ComboBox>
+
+        <Button x:Name="BtnAjouter" Content="Ajouter" Click="BtnAjouterCliquer"
+                HorizontalAlignment="Left" Margin="84,228,0,0" VerticalAlignment="Top" Width="99" Height="27" Background="#FF1440E9"/>
+        <Button x:Name="BtnModifier" Content="Modifier" Click="BtnModifierCliquer"
+                HorizontalAlignment="Left" Margin="400,228,0,0" VerticalAlignment="Top" Width="100" Height="27" Grid.ColumnSpan="2" Background="#FF3ADC09"/>
+        <Button x:Name="BtnSupprimer" Content="Supprimer" Click="BtnSupprimerCliquer"
+                HorizontalAlignment="Left" Margin="257,228,0,0" VerticalAlignment="Top" Width="98" Height="27" Grid.Column="1" Background="#FFD43030"/>
+
+        <!-- Table de données -->
+        <DataGrid x:Name="personDataGrid"
+          Grid.ColumnSpan="2"
+          Margin="47,270,37,26"
+          IsReadOnly="True"
+          AutoGenerateColumns="False"
+          SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="150"/>
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="150"/>
+                <DataGridTextColumn Header="Âge" Binding="{Binding Age}" Width="150"/>
+                <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}" Width="150"/>
+                <DataGridTextColumn Header="Sexe" Binding="{Binding Sexe}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
